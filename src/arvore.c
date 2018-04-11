@@ -1,21 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void criarArvore(No **raiz){
+#include "arvore.h"
+
+void criarArvore(NoArvore **raiz){
     *raiz = NULL;
 }
 
-void insereNo(NoArvore **raiz, string dadoNovo) {
-   if ( *raiz == NULL ) {
- 	    *raiz=(NoArvore *)malloc(sizeof (NoArvore));
-      (*raiz)->esq=NULL;
-    	(*raiz)->dir=NULL;
-      (*raiz)->dado=dadoNovo;
-      return;
-   }
-   else if ( dadoNovo < ((*raiz)->dado) ) {
+void insereNo(NoArvore **raiz, char dadoNovo[200]) {
+   if (*raiz == NULL ) {
+		*raiz=(NoArvore *)malloc(sizeof(struct NoArvore));
+		(*raiz)->esq = NULL;
+		(*raiz)->dir = NULL;
+		strcpy((*raiz)->dado,dadoNovo);
+		printf('%s',(*raiz)->dado);
+   }/*
+   else if ( dadoNovo < ((*raiz)->dados) ) {
       insereNo( &(*raiz)->esq, dadoNovo );
    }
 
    else {
       insereNo( &(*raiz)->dir, dadoNovo );
-   }
+   }*/
+}
+
+void strcpy (char dest[200], char orig[200]){
+	int i;
+	for (i=0; i<strlen(orig); i++){
+		dest[i]=orig[i];
+	}
+	dest[i]="/0";
 }
