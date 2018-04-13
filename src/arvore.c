@@ -13,8 +13,8 @@ void insereNo(NoArvore **raiz, char dadoNovo[200]) {
 		*raiz=(NoArvore *)malloc(sizeof(struct NoArvore));
 		(*raiz)->esq = NULL;
 		(*raiz)->dir = NULL;
-		strcpy((*raiz)->dado,dadoNovo);
-		printf('%s',(*raiz)->dado);
+		strcpy(((*raiz)->dado),dadoNovo);
+		puts((*raiz)->dado);
    }/*
    else if ( dadoNovo < ((*raiz)->dados) ) {
       insereNo( &(*raiz)->esq, dadoNovo );
@@ -30,5 +30,6 @@ void strcpy (char dest[200], char orig[200]){
 	for (i=0; i<strlen(orig); i++){
 		dest[i]=orig[i];
 	}
-	dest[i]="/0";
+	dest[i]='/';
+	dest[i+1]='0';
 }

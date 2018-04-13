@@ -6,3 +6,8 @@ struct NoArvore {
    NoArvore *esq;   // nó esquerdo corresponde a sim YES.
    NoArvore *dir;  // nó esquerdo corresponde a não NO.
 };
+
+
+void criarArvore(NoArvore **raiz);
+void insereNo(NoArvore **raiz, char dadoNovo[200]);
+void strcpy (char dest[200], char orig[200]);

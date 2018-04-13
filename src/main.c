@@ -4,9 +4,11 @@
 #include <string.h>
 
 #include "main.h"
+#include "arvore.h"
+
+NoArvore *jogo;
 
 int main(){
-
 	char resposta;
 
 	printf("Jogo das 20 perguntas:");
@@ -29,3 +31,6 @@ imprimePergunta(char dado[]){
 }
 
 */
+void gerarArvore(){
+
+}
