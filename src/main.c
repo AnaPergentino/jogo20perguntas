@@ -7,12 +7,14 @@
 #include "arvore.h"
 
 NoArvore *jogo;
-FILE *jogo;
 
 int main(){
 	char resposta;
+	char arq[50] = "jogo.txt";
+	char tree[50] = "arvore.txt";
 
 	FILE* fp = fopen(arq, "rw");
+	FILE* fp2 = fopen(tree, "rw");
 
 	if(fp == NULL){
 			printf("%s Erro na abertura do arquivo!\n", arq);
@@ -27,8 +29,7 @@ int main(){
 
 
 }
-
-imprimePergunta(char dado[]){
+/*imprimePergunta(char dado[]){
 	printf("%s", dado);
 	scanf("%c", &resposta);
 	if (resposta == Y){
@@ -37,7 +38,7 @@ imprimePergunta(char dado[]){
 	else if (resposta == N){
 		proximaPergunta();
 	}
-}
+}*/
 
 
 void gerarArvore(){

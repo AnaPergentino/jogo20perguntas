@@ -9,4 +9,5 @@ struct NoArvore {
 
 
 void criarArvore(NoArvore **raiz);
-void insereNo(NoArvore **raiz, char dadoNovo[200]);
+void insereNo(NoArvore **raiz, char dadoNovo[200], char resp);
+void destroiArvore(struct NoArvore *raiz);
