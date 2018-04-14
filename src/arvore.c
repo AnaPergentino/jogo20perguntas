@@ -24,12 +24,3 @@ void insereNo(NoArvore **raiz, char dadoNovo[200]) {
       insereNo( &(*raiz)->dir, dadoNovo );
    }*/
 }
-
-void strcpy (char dest[200], char orig[200]){
-	int i;
-	for (i=0; i<strlen(orig); i++){
-		dest[i]=orig[i];
-	}
-	dest[i]='/';
-	dest[i+1]='0';
-}

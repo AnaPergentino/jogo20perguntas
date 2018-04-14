@@ -10,4 +10,3 @@ struct NoArvore {
 
 void criarArvore(NoArvore **raiz);
 void insereNo(NoArvore **raiz, char dadoNovo[200]);
-void strcpy (char dest[200], char orig[200]);
