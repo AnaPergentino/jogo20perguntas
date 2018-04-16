@@ -4,13 +4,13 @@
 
 #include "arvore.h"
 
-void criarArvore(NoArvore **raiz){
+void criarArvore(noArvore **raiz){
     *raiz = NULL;
 }
 
-void insereNo(NoArvore **raiz, char dadoNovo[200], char resp) {
+void insereNo(noArvore **raiz, char dadoNovo[200], char resp) {
    if (*raiz == NULL ) {
-  		*raiz=(NoArvore *)malloc(sizeof(struct NoArvore));
+  		*raiz=(noArvore *)malloc(sizeof(struct noArvore));
   		(*raiz)->esq = NULL;
   		(*raiz)->dir = NULL;
   		strcpy(((*raiz)->dado),dadoNovo);
@@ -25,7 +25,7 @@ void insereNo(NoArvore **raiz, char dadoNovo[200], char resp) {
    }
 }
 
-void destroiArvore(struct NoArvore *raiz) {
+void destroiArvore(struct noArvore *raiz) {
   if( raiz != 0 )
   {
       destroiArvore(raiz->esq);

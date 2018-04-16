@@ -31,9 +31,9 @@ $(ODIR)/%.o: %.c $(DEPS)
 
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) -Wno-write-strings
-
+#
 #test: $(OBJC) $(OBJTEST)
-	#$(CC) -o $@ $^ $(CFLAGS) $(LIBS) $(LIBSTEST)
+#	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) $(LIBSTEST)
 
 main: $(OBJC) $(OBJMAIN)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) $(LIBSMAIN)

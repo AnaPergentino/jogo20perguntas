@@ -1,13 +1,13 @@
-typedef struct NoArvore *raiz;//Ponteiro para raíz da árvore
+typedef struct noArvore *raiz;//Ponteiro para raíz da árvore
 
-struct NoArvore {
+struct noArvore {
    int nivel;
    char dado[200];
-   NoArvore *esq;   // nó esquerdo corresponde a sim YES.
-   NoArvore *dir;  // nó esquerdo corresponde a não NO.
+   noArvore *esq;   // nó esquerdo corresponde a sim YES.
+   noArvore *dir;  // nó esquerdo corresponde a não NO.
 };
 
 
-void criarArvore(NoArvore **raiz);
-void insereNo(NoArvore **raiz, char dadoNovo[200], char resp);
-void destroiArvore(struct NoArvore *raiz);
+void criarArvore(noArvore **raiz);
+void insereNo(noArvore **raiz, char dadoNovo[200], char resp);
+void destroiArvore(struct noArvore *raiz);
