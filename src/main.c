@@ -8,7 +8,7 @@
 
 
 int main(){
-	noArvore *jogo;
+	struct noArvore *jogo;
 	char resposta;
 	char arq[50] = "jogo.txt";
 	char tree[50] = "arvore.txt";
@@ -28,16 +28,17 @@ int main(){
 	imprimePergunta(raiz);
 	fclose(fp);
 	fclose(fp2);
-
+	return 0;
 }
-noArvore* gerarArvore (FILE* fp){
-	noArvore **raiz = NULL;
+noArvore** gerarArvore (FILE* fp){
+	struct noArvore **raiz = NULL;
+	char dado[200];
+	char resposta;
 	criarArvore(raiz);
 	while(fscanf(fp, "%s")>0){
-		fgetc(fp); fgetc(fp); //limpa o buffer pra ler o resto dos dados da linha
-		char dado[200];
-		fscanf(fp, "%s %d %d \n", &dado, &esq, &dir);
-		insereNo(*raiz, dado);
+		//fgetc(fp); fgetc(fp); //limpa o buffer pra ler o resto dos dados da linha
+		fscanf(fp, "%s %c\n", dado, &resposta);
+		insereNo(raiz, dado, resposta);
 	}
 	return raiz;
 }
