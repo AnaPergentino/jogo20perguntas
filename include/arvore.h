@@ -1,9 +1,9 @@
 
-struct noArvore {
+typedef struct noArvore {
    char dado[200];
-   noArvore *esq;   // nó esquerdo corresponde a sim YES.
-   noArvore *dir;  // nó esquerdo corresponde a não NO.
-} *Raiz;//Ponteiro para raíz da árvore
+   struct noArvore *esq;   // nó esquerdo corresponde a sim YES.
+   struct noArvore *dir;  // nó esquerdo corresponde a não NO.
+} Raiz; // raíz da árvore
 
 
 void criarArvore(noArvore **raiz);
