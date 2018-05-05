@@ -35,7 +35,7 @@ noArvore* gerarArvore (FILE* fp){
 	char resposta;
 	criarArvore(raiz);
 	while(!feof(fp)){
-		fscanf(fp, "%s %c\n", dado, &resposta);
+		fscanf(fp, "%s - %c\n", dado, &resposta);
 		insereNo((raiz), dado, resposta);
 	}
 	return *raiz;
@@ -48,7 +48,7 @@ void imprimePergunta(noArvore *raiz){
 		printf("%s",(raiz)-> dado);
 		scanf("%c", &resposta);
 		if (resposta == 'Y'){
-			//	imprimeResposta(dado);
+			imprimePergunta((raiz)->dir);
 		}
 		else if (resposta == 'N'){
 			imprimePergunta((raiz)->esq);
