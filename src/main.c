@@ -20,34 +20,35 @@ int main(){
 		exit(EXIT_FAILURE);
 		return 0;
 	}
-	struct noArvore* raiz = gerarArvore(fp);
+	noArvore* raiz = gerarArvore(fp);
 	printf("Jogo das 20 perguntas:");
 	printf("Pense em algo...");
 	printf("Responda sim ou não (Y/N)");
-	imprimePergunta(raiz);
+	imprimePergunta(&(*raiz));
 	fclose(fp);
 	fclose(fp2);
 	return 0;
 }
-noArvore** gerarArvore (FILE* fp){
-	struct noArvore **raiz = NULL;
+noArvore* gerarArvore (FILE* fp){
+	noArvore **raiz;
 	char dado[200];
 	char resposta;
 	criarArvore(raiz);
-	while(fscanf(fp)){
-		//fgetc(fp); fgetc(fp); //limpa o buffer pra ler o resto dos dados da linha
+	while(!feof(fp)){
 		fscanf(fp, "%s %c\n", dado, &resposta);
-		insereNo(raiz, dado, resposta);
+		insereNo((raiz), dado, resposta);
 	}
-	return raiz;
+	return *raiz;
 }
-void imprimePergunta(char dado[]){
-	printf("%s", dado);
+void imprimePergunta(noArvore *raiz){
+	char resposta;
+	puts((raiz)->dado);
+	printf("%s",(raiz)-> dado);
 	scanf("%c", &resposta);
 	if (resposta == 'Y'){
 		//	imprimeResposta(dado);
 	}
 	else if (resposta == 'N'){
-		imprimePergunta((*raiz)->esq);
+		imprimePergunta((raiz)->esq);
 	}
 }
