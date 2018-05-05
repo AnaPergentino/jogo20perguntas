@@ -42,13 +42,22 @@ noArvore* gerarArvore (FILE* fp){
 }
 void imprimePergunta(noArvore *raiz){
 	char resposta;
-	puts((raiz)->dado);
-	printf("%s",(raiz)-> dado);
-	scanf("%c", &resposta);
-	if (resposta == 'Y'){
-		//	imprimeResposta(dado);
+	char dadoNovo[200];
+	if ((raiz)->dado != NULL){
+		puts((raiz)->dado);
+		printf("%s",(raiz)-> dado);
+		scanf("%c", &resposta);
+		if (resposta == 'Y'){
+			//	imprimeResposta(dado);
+		}
+		else if (resposta == 'N'){
+			imprimePergunta((raiz)->esq);
+		}
 	}
-	else if (resposta == 'N'){
-		imprimePergunta((raiz)->esq);
+	else if ((raiz)->dado == NULL){
+		printf("Insira uma pergunta:");
+		scanf("%s", dadoNovo);
+		char resp='Y';
+		insereNo(&(raiz), dadoNovo, resp);
 	}
 }
