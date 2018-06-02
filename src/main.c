@@ -21,9 +21,9 @@ int main(){
 		return 0;
 	}
 	noArvore* raiz = gerarArvore(fp);
-	printf("Jogo das 20 perguntas:");
-	printf("Pense em algo...");
-	printf("Responda sim ou não (Y/N)");
+	printf("Jogo das 20 perguntas:\n");
+	printf("Pense em algo...\n");
+	printf("Responda sim ou não (Y/N)\n");
 	imprimePergunta(&(*raiz));
 	fclose(fp);
 	fclose(fp2);
@@ -32,18 +32,19 @@ int main(){
 noArvore* gerarArvore (FILE* fp){
 	noArvore **raiz;
 	char dado[200];
-	char resposta;
+	char resposta= 'Y';
 	criarArvore(raiz);
 	while(!feof(fp)){
-		fscanf(fp, "%s - %c\n", dado, &resposta);
+		fscanf(fp, "%[^\n]", dado);
 		insereNo((raiz), dado, resposta);
+		printf("%s",(*raiz)-> dado);
 	}
 	return *raiz;
 }
 void imprimePergunta(noArvore *raiz){
 	char resposta;
 	char dadoNovo[200];
-	if ((raiz)->dado != NULL){
+	if (raiz!=NULL){
 		puts((raiz)->dado);
 		printf("%s",(raiz)-> dado);
 		scanf("%c", &resposta);
@@ -54,10 +55,10 @@ void imprimePergunta(noArvore *raiz){
 			imprimePergunta((raiz)->esq);
 		}
 	}
-	else if ((raiz)->dado == NULL){
+	else if (raiz==NULL) {
+		char resp='L';
 		printf("Insira uma pergunta:");
 		scanf("%s", dadoNovo);
-		char resp='Y';
 		insereNo(&(raiz), dadoNovo, resp);
 	}
 }
