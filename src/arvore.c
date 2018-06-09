@@ -14,7 +14,7 @@ void insereNo(noArvore **raiz, char dadoNovo[200], char resp) {
   		(*raiz)->esq = NULL;
   		(*raiz)->dir = NULL;
   		strcpy(((*raiz)->dado),dadoNovo);
-  		puts((*raiz)->dado);
+  //		puts((*raiz)->dado);
    }
    else if ( resp == 'Y'/* dadoNovo < ((*raiz)->dados)*/ ) {
       insereNo( &(*raiz)->esq, dadoNovo, resp );

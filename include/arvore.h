@@ -3,7 +3,7 @@ typedef struct noArvore {
    char dado[200];
    struct noArvore *esq;   // nó esquerdo corresponde a sim YES.
    struct noArvore *dir;  // nó esquerdo corresponde a não NO.
-} Raiz; // raíz da árvore
+} noArvore; // raíz da árvore
 
 
 void criarArvore(noArvore **raiz);

@@ -1,1 +1,2 @@
-- É um objeto? -
+- É um objeto?
+- É um animal?

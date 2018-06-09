@@ -12,8 +12,8 @@ int main(){
 	char arq[50] = "jogo.txt";
 	char tree[50] = "arvore.txt";
 
-	FILE* fp = fopen(arq, "rw");
-	FILE* fp2 = fopen(tree, "rw");
+	FILE* fp = fopen(arq, "r");
+	FILE* fp2 = fopen(tree, "w");
 
 	if(fp == NULL){
 		printf("%s Erro na abertura do arquivo!\n", arq);
@@ -30,22 +30,23 @@ int main(){
 	return 0;
 }
 noArvore* gerarArvore (FILE* fp){
-	noArvore **raiz;
+	noArvore *raiz;
 	char dado[200];
 	char resposta= 'Y';
-	criarArvore(raiz);
-	while(!feof(fp)){
+	criarArvore(&raiz);
+	while(fgets(dado, sizeof(dado),fp)!=NULL){
+		//fgets(dado, sizeof(dado),fp);
 		fscanf(fp, "%[^\n]", dado);
-		insereNo((raiz), dado, resposta);
-		printf("%s",(*raiz)-> dado);
+		insereNo((&raiz), dado, resposta);
+	//	printf("%s",(raiz)-> dado);
 	}
-	return *raiz;
+	return raiz;
 }
 void imprimePergunta(noArvore *raiz){
 	char resposta;
 	char dadoNovo[200];
 	if (raiz!=NULL){
-		puts((raiz)->dado);
+		//puts((raiz)->dado);
 		printf("%s",(raiz)-> dado);
 		scanf("%c", &resposta);
 		if (resposta == 'Y'){
